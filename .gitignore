@@ -1,0 +1,7 @@
+node_modules
+.env
+**/*.js
+localhost.crt
+localhost.key
+server.crt
+server.key
