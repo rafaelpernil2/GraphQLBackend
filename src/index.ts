@@ -3,10 +3,8 @@ import https from "https";
 import fs from "fs";
 import { graphqlHTTP } from "express-graphql";
 import * as core from 'express-serve-static-core';
-import ws, { AddressInfo } from "ws";
-import { useServer } from "graphql-ws/lib/use/ws"
 import { execute, subscribe } from 'graphql';
-import schema from "./graphql/SchemasMap";
+import schema from "./graphql/schemasMap";
 import { EnvLoader } from "./utils/env-loader";
 import { MongoDBSingleton } from "./utils/mongodb-singleton";
 
@@ -37,8 +35,5 @@ let httpServer: core.Express | https.Server = expressServer;
 
 const server = httpServer.listen(HTTPS_PORT, () => {
     console.log(`GraphQL server running using ${Boolean(IS_HTTPS) ? "HTTPS" : "HTTP"} on port ${HTTPS_PORT}`);
-
-    const wsServer = new ws.Server({ server, path: wssPath });
-    useServer({ schema, execute, subscribe }, wsServer);
 });
 
