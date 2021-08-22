@@ -1,13 +1,12 @@
 import 'graphql-import-node';
-import * as userTypeDefs from "./schemas/user.graphql"
-import * as emptyTypeDefs from "./schemas/empty.graphql"
+import * as userTypeDefs from "allotr-graphql-schema-types/src/schemas/user.graphql"
 import { makeExecutableSchema } from "@graphql-tools/schema";
 import { DIRECTIVES } from '@graphql-codegen/typescript-mongodb';
-import resolvers from "./resolver/resolversMap";
+import resolvers from "./resolvers/ResolversMap";
 import { GraphQLSchema } from "graphql";
 
 const schema: GraphQLSchema = makeExecutableSchema({
-    typeDefs: [DIRECTIVES, emptyTypeDefs, userTypeDefs],
+    typeDefs: [DIRECTIVES, userTypeDefs],
     resolvers
 });
 

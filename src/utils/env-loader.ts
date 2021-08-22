@@ -1,4 +1,4 @@
-import { EnvObject } from "src/types/env-object";
+import { EnvObject } from "../types/env-object";
 
 export class EnvLoader {
     public loadedVariables: EnvObject;
@@ -8,6 +8,7 @@ export class EnvLoader {
         this.loadedVariables = {} as EnvObject;
         const variablesToLoad: Partial<EnvObject> = {
             MONGO_DB_ENDPOINT: undefined,
+            DB_NAME: undefined,
             IS_HTTPS: undefined,
             SSL_CRT_FILE: undefined,
             SSL_KEY_FILE: undefined,
